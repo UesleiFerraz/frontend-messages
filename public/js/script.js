@@ -32,8 +32,6 @@ function showPassword(event) {
 }
 
 if (document.querySelector("#signUp")) {
-  token ? (location = "recados.html") : "";
-
   userName.addEventListener("keydown", event => {
     usernameError.innerHTML = "";
   });
@@ -261,6 +259,6 @@ if (document.querySelector("#saveList")) {
     localStorage.setItem("scrapId", scrapId);
 
     return trDOM;
-    
+
   }
 }
