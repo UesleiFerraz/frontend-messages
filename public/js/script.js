@@ -2,7 +2,7 @@ axios.defaults.baseURL = "https://backend-scraps.herokuapp.com/";
 
 const token = localStorage.getItem("token");
 let userId = "";
-let scrapId = localStorage.scrapId ? JSON.parse(localStorage.scrapId): 1
+let scrapId = localStorage.scrapId ? JSON.parse(localStorage.scrapId) : 1;
 const userName = document.querySelector("input");
 const password = document.querySelectorAll("input")[1];
 const repeatPassword = document.querySelectorAll("input")[2];
@@ -173,8 +173,7 @@ if (document.querySelector("#saveList")) {
 
             detailsError.innerHTML = "";
             descriptionError.innerHTML = "";
-          } catch (err) {
-            console.log(err);
+          } catch {
             detailsError.innerHTML = "Digite os detalhes deste recado";
             descriptionError.innerHTML = "Digite uma descrição";
           }
@@ -198,16 +197,14 @@ if (document.querySelector("#saveList")) {
             description.value = "";
             details.value = "";
             button.id = "";
-          } catch (e) {
-            console.log(e);
+          } catch {
             detailsError.innerHTML = "Digite os detalhes deste recado";
             descriptionError.innerHTML = "Digite uma descrição";
           }
         }
       });
-    } catch (error) {
-      console.log(error);
-      localStorage.removeItem('token')
+    } catch {
+      localStorage.removeItem("token");
       location = "index.html?error=login";
     }
   }
@@ -253,12 +250,16 @@ if (document.querySelector("#saveList")) {
       <td>${scrap.description}</td>
       <td>${scrap.details}</td>
       <td>
-      <button type="button" onclick="editTodo('${scrap.id}')" class="me-2 btn btn-outline-warning">Editar</button>
-      <button type="button" onclick="deleteTodo('${scrap.id}')" class="btn btn-outline-danger">Excluir</button>
+      <button type="button" onclick="editTodo('${
+        scrap.id
+      }')" class="me-2 btn btn-outline-warning">Editar</button>
+      <button type="button" onclick="deleteTodo('${
+        scrap.id
+      }')" class="btn btn-outline-danger">Excluir</button>
       </td>
       `;
 
-      localStorage.setItem('scrapId', scrapId)
+    localStorage.setItem("scrapId", scrapId);
 
     return trDOM;
   }
