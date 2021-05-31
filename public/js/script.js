@@ -80,7 +80,7 @@ if (document.querySelector("#signUp")) {
 
         new bootstrap.Modal(document.getElementById("myModal"), {}).show();
       } catch {
-        usernameError.innerHTML = "Ja existe um usuario com esse login!";
+        usernameError.innerHTML = "Verifique se os campos estão preenchidos";
       }
     }
   });
@@ -259,6 +259,5 @@ if (document.querySelector("#saveList")) {
     localStorage.setItem("scrapId", scrapId);
 
     return trDOM;
-
   }
 }
