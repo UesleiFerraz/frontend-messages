@@ -131,7 +131,6 @@ if (document.querySelector("#saveList")) {
       userId = JSON.parse(atob(token.split(".")[1])).userIdToken;
     } catch {
       location = "index.html?error=login";
-      console.log()
     }
   } else {
     location = "index.html?error=login";
