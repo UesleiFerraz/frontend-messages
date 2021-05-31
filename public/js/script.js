@@ -127,7 +127,11 @@ if (document.querySelector("#signIn")) {
 
 if (document.querySelector("#saveList")) {
   if (token) {
-    userId = JSON.parse(atob(token.split(".")[1])).userIdToken;
+    try {
+      userId = JSON.parse(atob(token.split(".")[1])).userIdToken;
+    } catch {
+      location = "index.html?error=login";
+    }
   } else {
     location = "index.html?error=login";
   }
