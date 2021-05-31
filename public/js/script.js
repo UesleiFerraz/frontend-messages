@@ -2,7 +2,7 @@ axios.defaults.baseURL = "https://backend-scraps.herokuapp.com/";
 
 const token = localStorage.getItem("token");
 let userId = "";
-const scrapId = localStorage.scrapId ? JSON.parse(localStorage.scrapId) + 1 : 1
+let scrapId = localStorage.scrapId ? JSON.parse(localStorage.scrapId): 1
 const userName = document.querySelector("input");
 const password = document.querySelectorAll("input")[1];
 const repeatPassword = document.querySelectorAll("input")[2];
@@ -207,6 +207,7 @@ if (document.querySelector("#saveList")) {
       });
     } catch (error) {
       console.log(error);
+      localStorage.removeItem('token')
       location = "index.html?error=login";
     }
   }
@@ -246,9 +247,9 @@ if (document.querySelector("#saveList")) {
 
   function createElement(scrap, length) {
     let trDOM = document.createElement("tr");
-    trDOM.id = `id_${scrapId}`;
+    trDOM.id = `id_${scrap.id}`;
     trDOM.innerHTML = `
-      <th scope="row">${Math.floor(Math.random() * (100 - 1)) + 1}</th>
+      <th scope="row">${++scrapId}</th>
       <td>${scrap.description}</td>
       <td>${scrap.details}</td>
       <td>
