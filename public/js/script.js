@@ -99,7 +99,7 @@ if (document.querySelector("#signIn")) {
     iconShowHidePassword1.classList.remove("invalid");
   });
 
-  if (localStorage.getItem("token")) {
+  if (localStorage.getItem("token") !== '') {
     location = "recados.html";
   }
 
@@ -204,7 +204,7 @@ if (document.querySelector("#saveList")) {
         }
       });
     } catch {
-      await localStorage.removeItem("token");
+      localStorage.removeItem("token");
       location = "index.html?error=login";
     }
   }
