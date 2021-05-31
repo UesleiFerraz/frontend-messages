@@ -204,7 +204,7 @@ if (document.querySelector("#saveList")) {
         }
       });
     } catch {
-      localStorage.removeItem("token");
+      await localStorage.removeItem("token");
       location = "index.html?error=login";
     }
   }
