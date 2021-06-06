@@ -239,7 +239,7 @@ if (document.querySelector("#saveList")) {
     button.id = id;
   }
 
-  function createElement(scrap, length) {
+  function createElement(scrap) {
     let trDOM = document.createElement("tr");
     trDOM.id = `id_${scrap.id}`;
     trDOM.innerHTML = `
